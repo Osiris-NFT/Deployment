@@ -17,14 +17,19 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: trend-tracker
-        image: "docker.io/mightyfoxx/trend-tracker:latest"
+        image: "docker.io/mightyfoxx/osiris_trend-tracker:latest"
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-          name: trend-tracker
+          name: http
         volumeMounts:
         - name: trend-vc
           mountPath: /home/data/trend-data
+        env:
+        - name: VOLUME_PATH
+          value: /home/data/trend-data
+        - name: PUBLICATION_SVC_URL
+          value: publications-svc.default.svc.cluster.local
   volumeClaimTemplates:
   - metadata:
       name: trend-vc

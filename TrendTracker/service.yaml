@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
   - port: 8080
-    name: trend-tracker
+    name: http
   clusterIP: None
   selector:
     app: trend-tracker

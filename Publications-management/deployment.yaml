@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: publications-service
-        image: "docker.io/mightyfoxx/publications-service:latest"
+        image: "docker.io/mightyfoxx/osiris_publications-management:latest"
         imagePullPolicy: Always
         ports:
         - name: http
