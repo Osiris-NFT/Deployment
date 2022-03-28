@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: publications-service
-        image: "docker.io/mightyfoxx/publications-service:v2.03"
-        imagePullPolicy: IfNotPresent
+        image: "docker.io/mightyfoxx/publications-service:latest"
+        imagePullPolicy: Always
         ports:
         - name: http
           protocol: TCP
