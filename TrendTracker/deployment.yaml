@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: trend-tracker
+spec:
+  selector:
+    matchLabels:
+      app: trend-tracker # has to match .spec.template.metadata.labels
+  serviceName: "trend-tracker-svc"
+  replicas: 3 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        app: trend-tracker # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: trend-tracker
+        image: "docker.io/mightyfoxx/trend-tracker:latest"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: trend-tracker
+        volumeMounts:
+        - name: trend-vc
+          mountPath: /home/data/trend-data
+  volumeClaimTemplates:
+  - metadata:
+      name: trend-vc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 500Mo
