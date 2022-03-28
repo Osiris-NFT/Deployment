@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: publications-svc
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+    nodePort: 31000
+  selector:
+    pod-name: publications-service
+  type: NodePort
