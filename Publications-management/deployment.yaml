@@ -27,6 +27,8 @@ spec:
             value: publications
           - name: DB_NAME
             value: publication-service
+          - name: TRENDTRACKER_URL
+            value: trend-tracker.default.svc.cluster.local/
         resources:
           requests:
             memory: "64Mi"
