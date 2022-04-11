@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: trend-tracker # has to match .spec.template.metadata.labels
   serviceName: "trend-tracker-svc"
-  replicas: 3 # by default is 1
+  replicas: 1 # by default is 1
   minReadySeconds: 10 # by default is 0
   template:
     metadata:
@@ -27,9 +27,9 @@ spec:
           mountPath: /home/data/trend-data
         env:
         - name: VOLUME_PATH
-          value: /home/data/trend-data
+          value: "/home/data/trend-data"
         - name: PUBLICATION_SVC_URL
-          value: publications-svc.default.svc.cluster.local
+          value: "publications-svc.default.svc.cluster.local"
   volumeClaimTemplates:
   - metadata:
       name: trend-vc
@@ -38,4 +38,4 @@ spec:
       storageClassName: standard
       resources:
         requests:
-          storage: 500Mo
+          storage: 500M
