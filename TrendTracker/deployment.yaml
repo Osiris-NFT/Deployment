@@ -26,7 +26,7 @@ spec:
         - name: trend-vc
           mountPath: /home/data/trend-data
         env:
-        - name: PYTHONUNBUFFEREDs
+        - name: PYTHONUNBUFFERED
           value: "0"
         - name: VOLUME_PATH
           value: "/home/data/trend-data"
