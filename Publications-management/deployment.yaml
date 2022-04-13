@@ -21,6 +21,8 @@ spec:
           protocol: TCP
           containerPort: 8000
         env:
+          - name: DEPLOYMENT_MODE
+            value: PROD
           - name: DATABASE_URL
             value: mongodb://mongo-svc.default.svc.cluster.local/
           - name: COLLECTION_NAME

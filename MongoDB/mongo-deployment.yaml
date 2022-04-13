@@ -18,7 +18,7 @@ spec:
       containers:
       - image: mongo
         name: mongo
-        args: ["--dbpath","/home/data/db"]
+        args: ["--dbpath","/data/db"]
         livenessProbe:
           exec:
             command:
@@ -45,7 +45,7 @@ spec:
           failureThreshold: 6
         volumeMounts:
         - name: "mongo-data-dir"
-          mountPath: "/home/data/db"
+          mountPath: "/data/db"
       volumes:
       - name: "mongo-data-dir"
         persistentVolumeClaim:

@@ -8,6 +8,7 @@ spec:
   ports:
   - port: 8080
     name: http
-  clusterIP: None
+    protocol: TCP
+    targetPort: 8080
   selector:
     app: trend-tracker
