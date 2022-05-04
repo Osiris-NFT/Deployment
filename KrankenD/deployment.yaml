@@ -15,6 +15,10 @@ spec:
       containers:
       - name: krakend
         image: mightyfoxx/osiris_krakend:latest
+        readinessProbe:
+          httpGet:
+            path: /__health
+            port: 8080
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
