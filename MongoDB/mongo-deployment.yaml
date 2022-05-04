@@ -44,9 +44,10 @@ spec:
           successThreshold: 1
           failureThreshold: 6
         volumeMounts:
-        - mountPath: "/data/db"
-          name: mongo
+        - mountPath: /data/db
+          name: mongo-volume
       volumes:
-      - name: mongo
-        persistentVolumeClaim:
-          claimName: mongo-pvc
+      - name: mongo-volume
+        gcePersistentDisk:
+          pdName: mongodb
+          fsType: ext4
