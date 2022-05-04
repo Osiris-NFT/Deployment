@@ -44,9 +44,9 @@ spec:
           successThreshold: 1
           failureThreshold: 6
         volumeMounts:
-        - name: "mongo-data-dir"
-          mountPath: "/data/db"
+        - mountPath: "/data/db"
+          name: mongo
       volumes:
-      - name: "mongo-data-dir"
+      - name: mongo
         persistentVolumeClaim:
           claimName: mongo-pvc
