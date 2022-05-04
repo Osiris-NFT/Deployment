@@ -16,6 +16,10 @@ spec:
     spec:
       containers:
       - name: grafana
+        readinessProbe:
+          httpGet:
+            path: /login
+            port: 3000
         image: grafana/grafana:latest
         ports:
         - name: grafana
