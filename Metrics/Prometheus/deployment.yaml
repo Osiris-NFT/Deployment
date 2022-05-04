@@ -17,6 +17,10 @@ spec:
     spec:
       containers:
         - name: prometheus
+          readinessProbe:
+            httpGet:
+              path: /-/healthy
+              port: 9090
           image: prom/prometheus
           args:
             - "--storage.tsdb.retention.time=12h"
