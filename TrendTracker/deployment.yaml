@@ -23,7 +23,7 @@ spec:
         - name: PYTHONUNBUFFERED
           value: "0"
         - name: VOLUME_PATH
-          value: "/home/data/trend-data"
+          value: "data/trend-data"
         - name: PUBLICATION_SVC_URL
           value: "publications-svc.default.svc.cluster.local"
         - name: PUBLICATION_SVC_PORT
