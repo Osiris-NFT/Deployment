@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: trend-tracker
 spec:
@@ -7,8 +7,8 @@ spec:
     matchLabels:
       app: trend-tracker # has to match .spec.template.metadata.labels
   serviceName: "trend-tracker-svc"
-  replicas: 1 # by default is 1
-  minReadySeconds: 10 # by default is 0
+  replicas: 1
+  minReadySeconds: 10
   template:
     metadata:
       labels:
@@ -22,9 +22,6 @@ spec:
         ports:
         - containerPort: 8080
           name: http
-        volumeMounts:
-        - name: trend-vc
-          mountPath: /home/data/trend-data
         env:
         - name: PYTHONUNBUFFERED
           value: "0"
@@ -34,12 +31,8 @@ spec:
           value: "publications-svc.default.svc.cluster.local"
         - name: PUBLICATION_SVC_PORT
           value: "8000"
-  volumeClaimTemplates:
-  - metadata:
-      name: trend-vc
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: standard
-      resources:
-        requests:
-          storage: 500M
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "special-worker"
+        effect: "NoSchedule"
