@@ -1,0 +1,61 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/backends: '{"k8s1-6d33374f-monitoring-grafana-3000-c0a7cb0a":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-tnxdlbv6-monitoring-metrics-1jv6x407
+    ingress.kubernetes.io/target-proxy: k8s2-tp-tnxdlbv6-monitoring-metrics-1jv6x407
+    ingress.kubernetes.io/url-map: k8s2-um-tnxdlbv6-monitoring-metrics-1jv6x407
+  creationTimestamp: "2022-05-04T18:11:45Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:defaultBackend:
+          .: {}
+          f:service:
+            .: {}
+            f:name: {}
+            f:port:
+              .: {}
+              f:number: {}
+    manager: GoogleCloudConsole
+    operation: Update
+    time: "2022-05-04T18:11:45Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:ingress.kubernetes.io/backends: {}
+          f:ingress.kubernetes.io/forwarding-rule: {}
+          f:ingress.kubernetes.io/target-proxy: {}
+          f:ingress.kubernetes.io/url-map: {}
+        f:finalizers:
+          .: {}
+          v:"networking.gke.io/ingress-finalizer-V2": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: glbc
+    operation: Update
+    time: "2022-05-04T18:12:26Z"
+  name: metrics
+  namespace: monitoring
+  resourceVersion: "125562"
+  uid: 3bbcf55e-a0c2-4fa5-a733-b072691ba9e8
+spec:
+  defaultBackend:
+    service:
+      name: grafana
+      port:
+        number: 3000
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.117.180.52
