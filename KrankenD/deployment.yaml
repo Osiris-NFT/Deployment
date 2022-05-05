@@ -19,6 +19,10 @@ spec:
           httpGet:
             path: /__health
             port: 8080
+        livenessProbe:
+          httpGet:
+            path: /__health
+            port: 8080
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
