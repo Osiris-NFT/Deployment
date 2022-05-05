@@ -6,7 +6,6 @@ spec:
   selector:
     matchLabels:
       app: trend-tracker # has to match .spec.template.metadata.labels
-  serviceName: "trend-tracker-svc"
   replicas: 1
   minReadySeconds: 10
   template:
