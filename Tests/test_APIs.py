@@ -2,8 +2,6 @@ import requests
 from settings import *
 import json
 from PIL import Image
-import os
-from io import BytesIO
 import logging
 
 logger = logging.getLogger("logger")
@@ -102,7 +100,8 @@ def test_download_image():
 def test_get_publication_by_id():
     global publication_id
     response = requests.get(HOST + f"/api/publications/{publication_id}")
-    logger.debug("Get publication by ID response headers: " + str(response.headers))
+    logger.debug("Get publication by ID response headers: " +
+                 str(response.headers))
     logger.debug("Get publication by ID response body: " +
                  response.text)
     assert response.status_code == 200
@@ -120,7 +119,8 @@ def test_get_publication_by_user():
 
 def test_upvote_publication():
     global publication_id
-    response = requests.patch(HOST + f"/api/publications/{publication_id}/upvote")
+    response = requests.patch(
+        HOST + f"/api/publications/{publication_id}/upvote")
     logger.debug("Upvote publication by user response headers: " +
                  str(response.headers))
     logger.debug("Upvote publication by user response body: " +
@@ -137,7 +137,7 @@ def test_downvote_publication():
     logger.debug("Downvote publication by user response body: " +
                  response.text)
     assert response.status_code == 200
-    
+
 
 def test_upvote_comment():
     global publication_id, comment_id
@@ -191,7 +191,7 @@ def test_delete_reply_by_id():
     logger.debug("Delete reply by ID response body: " +
                  response.text)
     assert response.status_code == 200
-    
+
 
 def test_delete_comment_by_id():
     global publication_id, comment_id
@@ -206,7 +206,8 @@ def test_delete_comment_by_id():
 
 def test_delete_publication_by_id():
     global publication_id
-    response = requests.delete(HOST + f"/api/publications/{publication_id}/delete")
+    response = requests.delete(
+        HOST + f"/api/publications/{publication_id}/delete")
     logger.debug("Delete publication by ID response headers: " +
                  str(response.headers))
     logger.debug("Delete publication by ID response body: " +
