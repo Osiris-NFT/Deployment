@@ -81,7 +81,7 @@ def test_post_reply():
 
 def test_upload_image():
     global publication_id, file_id
-    path_img= "res/osi.jpg"
+    path_img= "Tests/res/osi.jpg"
     response = requests.post(
         DEBUG_HOST + f"/upload/{publication_id}", files={'file': ("osi.jpg", Image.open(path_img).tobytes(), "image/jpeg", {'Expires': '0'})})
     logger.debug("Upload image response headers: " + str(response.headers))
