@@ -185,31 +185,31 @@ def test_get_new_best_publication_by_id():
 def test_delete_reply_by_id():
     global publication_id, comment_id, reply_id
     response = requests.delete(
-        HOST + f"/api/publications/{publication_id}/comments/{comment_id}/replies/{reply_id}/delete")
+        DEBUG_HOST + f"/delete_reply_by_id/{publication_id}/{comment_id}/{reply_id}")
     logger.debug("Delete reply by ID response headers: " +
                  str(response.headers))
     logger.debug("Delete reply by ID response body: " +
                  response.text)
-    assert response.status_code == 200
+    assert response.status_code == 204
 
 
 def test_delete_comment_by_id():
     global publication_id, comment_id
     response = requests.delete(
-        HOST + f"/api/publications/{publication_id}/comments/{comment_id}/delete")
+        DEBUG_HOST + f"/delete_comment_by_id/{publication_id}/{comment_id}")
     logger.debug("Delete comment by ID response headers: " +
                  str(response.headers))
     logger.debug("Delete comment by ID response body: " +
                  response.text)
-    assert response.status_code == 200
+    assert response.status_code == 204
 
 
 def test_delete_publication_by_id():
     global publication_id
     response = requests.delete(
-        HOST + f"/api/publications/{publication_id}/delete")
+        DEBUG_HOST + f"/delete_publication_by_id/{publication_id}")
     logger.debug("Delete publication by ID response headers: " +
                  str(response.headers))
     logger.debug("Delete publication by ID response body: " +
                  response.text)
-    assert response.status_code == 200
+    assert response.status_code == 204
