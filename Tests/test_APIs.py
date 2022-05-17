@@ -132,9 +132,9 @@ def test_confirm_upvote_publication():
     global publication_id
     response = requests.get(
         HOST + f"/api/is/{publication_id}/liked_by/{P_USER}")
-    logger.debug("Upvote publication by user response headers: " +
+    logger.debug("Confirm upvote publication by user response headers: " +
                  str(response.headers))
-    logger.debug("Upvote publication by user response body: " +
+    logger.debug("Confirm upvote publication by user response body: " +
                  response.text)
     json_resp = json.loads(response.text)
     assert json_resp["is_liked"] is True
@@ -144,10 +144,10 @@ def test_confirm_upvote_publication():
 def test_get_liked_publication():
     global publication_id
     response = requests.get(
-        HOST + f"/api/{P_USER}/liked_publications")
-    logger.debug("Upvote publication by user response headers: " +
+        HOST + f"/api/liked_publications_of/{P_USER}")
+    logger.debug("Get upvoted publication by user response headers: " +
                  str(response.headers))
-    logger.debug("Upvote publication by user response body: " +
+    logger.debug("Get upvoted publication by user response bodKy: " +
                  response.text)
     json_resp = json.loads(response.text)
     assert json_resp["liked_pub"][0] == publication_id
