@@ -128,6 +128,19 @@ def test_upvote_publication():
     assert response.status_code == 200
 
 
+def test_confirm_upvote_publication():
+    global publication_id
+    response = requests.patch(
+        HOST + f"/api/is/{publication_id}/liked_by/{P_USER}")
+    logger.debug("Upvote publication by user response headers: " +
+                 str(response.headers))
+    logger.debug("Upvote publication by user response body: " +
+                 response.text)
+    json_resp = json.loads(response.text)
+    assert json_resp["is_liked"] is True
+    assert response.status_code == 200
+
+
 def test_downvote_publication():
     global publication_id
     response = requests.patch(
