@@ -120,7 +120,7 @@ def test_get_publication_by_user():
 def test_upvote_publication():
     global publication_id
     response = requests.patch(
-        HOST + f"/api/publications/{publication_id}/upvote")
+        HOST + f"/api/publications/{publication_id}/upvote_by/{P_USER}")
     logger.debug("Upvote publication by user response headers: " +
                  str(response.headers))
     logger.debug("Upvote publication by user response body: " +
