@@ -130,7 +130,7 @@ def test_upvote_publication():
 
 def test_confirm_upvote_publication():
     global publication_id
-    response = requests.patch(
+    response = requests.get(
         HOST + f"/api/is/{publication_id}/liked_by/{P_USER}")
     logger.debug("Upvote publication by user response headers: " +
                  str(response.headers))
