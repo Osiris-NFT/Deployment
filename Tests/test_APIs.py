@@ -144,7 +144,7 @@ def test_confirm_upvote_publication():
 def test_downvote_publication():
     global publication_id
     response = requests.patch(
-        HOST + f"/api/publications/{publication_id}/downvote")
+        HOST + f"/api/publications/{publication_id}/downvoted_by/{P_USER}")
     logger.debug("Downvote publication by user response headers: " +
                  str(response.headers))
     logger.debug("Downvote publication by user response body: " +
