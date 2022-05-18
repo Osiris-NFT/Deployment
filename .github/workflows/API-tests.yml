@@ -3,6 +3,9 @@ name: PyTest
 on:
   repository_dispatch:
     types: [trigger-api-tests]
+  push:
+    paths:
+      - "Tests/**"
 
 jobs:
   test:
