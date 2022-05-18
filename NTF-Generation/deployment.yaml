@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nft-generation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     pod-name: nft-generation
+  template:
+    metadata:
+      labels:
+        pod-name: nft-generation
+    spec:
+      containers:
+      - name: nft-generation
+        image: "docker.io/mightyfoxx/osiris_nft-generation:latest"
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          protocol: TCP
+          containerPort: 3000
+        env:
+          - name: NFT_PORT_KEY
+            value: b8f48132-ed04-4a82-b23a-00eabc15c99e
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
