@@ -149,8 +149,6 @@ def test_get_liked_publication():
                  str(response.headers))
     logger.debug("Get upvoted publication by user response bodKy: " +
                  response.text)
-    json_resp = json.loads(response.text)
-    assert json_resp["liked_pub"][0] == publication_id
     assert response.status_code == 200
 
 
