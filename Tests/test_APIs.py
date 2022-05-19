@@ -26,7 +26,7 @@ def test_if_service_alive():
 
 
 def test_if_nft_alive():
-    response = requests.get(HOST + "/api/nft")
+    response = requests.get(HOST + "/api/nft/__health")
     assert response.status_code == 200
 
 
