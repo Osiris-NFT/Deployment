@@ -36,6 +36,7 @@ def test_post_publication():
                              json={
                                  "publication_name": P_NAME,
                                  "user_name": P_USER,
+                                 "media_url": "",
                                  "description": P_DESCR,
                                  "content_type": P_CONTENT,
                                  "category": P_CAT
