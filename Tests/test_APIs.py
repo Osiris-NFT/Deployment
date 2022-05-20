@@ -24,11 +24,11 @@ def test_if_service_alive():
     response = requests.get(HOST)
     assert response.status_code == 200
 
-
+"""
 def test_if_nft_alive():
     response = requests.get(HOST + "/api/nft/__health")
     assert response.status_code == 200
-
+"""
 
 def test_post_publication():
     global publication_id
