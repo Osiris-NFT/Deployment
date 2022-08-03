@@ -22,7 +22,7 @@ spec:
           containerPort: 3000
         env:
           - name: NFT_PORT_KEY
-            value: private-key
+            value: "NFT_PORT_KEY"
         resources:
           requests:
             memory: "64Mi"
