@@ -1,1 +1,2 @@
-# Osiris-NFT_Deployment
+# Osiris NFT Deployment
+Handle deployment on Google Cloud & API tests.
